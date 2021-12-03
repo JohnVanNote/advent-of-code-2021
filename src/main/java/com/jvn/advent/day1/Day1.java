@@ -1,4 +1,4 @@
-package com.jvn.advent;
+package com.jvn.advent.day1;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -38,7 +38,7 @@ public class Day1 {
     final String inputFilePath = "src/main/resources/day1/input.txt";
 
     try (Stream<String> lines = Files.lines(Paths.get(inputFilePath))) {
-      List<Integer> depths = lines
+      final List<Integer> depths = lines
           .map(Integer::parseInt)
           .collect(Collectors.toList());
       System.out.println(String.format("There are %d depth increases", day1.numberOfDepthIncreases(depths)));

@@ -1,4 +1,4 @@
-package com.jvn.advent;
+package com.jvn.advent.day1;
 
 import com.google.common.collect.ImmutableList;
 import java.util.List;
