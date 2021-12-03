@@ -23,4 +23,9 @@ public class Day2UnitTest {
     Assert.assertEquals(day2.findSubmarinePosition(COMMANDS), 150);
   }
 
+  @Test
+  public void findComplexSubmarinePosition_commands_standard() {
+    Assert.assertEquals(day2.findComplexSubmarinePosition(COMMANDS), 900);
+  }
+
 }
