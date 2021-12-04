@@ -1,5 +1,6 @@
 package com.jvn.advent.day2;
 
+import com.jvn.advent.util.AdventException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -44,7 +45,7 @@ public class Day2 {
       } else if (command.isUp()) {
         aim -= value;
       } else {
-        throw new IllegalStateException(String.format("Command %s not supported", command));
+        throw new AdventException(String.format("Command %s not supported", command));
       }
     }
 

@@ -7,7 +7,7 @@ public class SubmarineCommandMapper {
 
   public static SubmarineCommand mapFromString(String stringCommand) {
     String[] split = StringUtils.split(stringCommand, " ");
-    return SubmarineCommand.create(CommandType.fromMoniker(split[0]).orElseThrow(IllegalStateException::new), Integer.parseInt(split[1]));
+    return SubmarineCommand.create(CommandType.fromMoniker(split[0]), Integer.parseInt(split[1]));
   }
 
 }

@@ -22,7 +22,7 @@ public class Day1 {
   public int numberOfSlidingDepthIncreases(List<Integer> depths) {
     int numberOfSlidingDepthIncreases = 0;
     for (int i = 0; i < depths.size() - 3; i++) {
-      if (slidingDepthTotal(depths, i+1) > slidingDepthTotal(depths, i)) {
+      if (slidingDepthTotal(depths, i + 1) > slidingDepthTotal(depths, i)) {
         numberOfSlidingDepthIncreases++;
       }
     }

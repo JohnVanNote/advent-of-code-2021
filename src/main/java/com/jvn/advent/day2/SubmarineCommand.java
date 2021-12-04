@@ -1,7 +1,7 @@
 package com.jvn.advent.day2;
 
+import com.jvn.advent.util.AdventException;
 import java.util.Arrays;
-import java.util.Optional;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -44,10 +44,11 @@ public class SubmarineCommand {
       this.moniker = moniker;
     }
 
-    public static Optional<CommandType> fromMoniker(String moniker) {
+    public static CommandType fromMoniker(String moniker) {
       return Arrays.stream(values())
           .filter(value -> value.getMoniker().equals(moniker))
-          .findFirst();
+          .findFirst()
+          .orElseThrow(AdventException::new);
     }
 
   }
