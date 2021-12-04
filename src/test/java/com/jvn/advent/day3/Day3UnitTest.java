@@ -29,4 +29,9 @@ public class Day3UnitTest {
     Assert.assertEquals(day3.calculateBinaryDiagnostic(EXAMPLE_DATA), 198);
   }
 
+  @Test
+  public void calculateLifeSupportRating_exampleData_calculatesCorrectly() {
+    Assert.assertEquals(day3.calculateLifeSupportRating(EXAMPLE_DATA), 230);
+  }
+
 }
