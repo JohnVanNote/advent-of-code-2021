@@ -32,6 +32,17 @@ public class BingoTile {
     return create(tileNumbers);
   }
 
+  public static BingoTile createFromIntegers(List<List<Integer>> unmarkedNumbers) {
+    final List<List<Number>> tileNumbers = new ArrayList<>();
+    unmarkedNumbers.forEach(row -> {
+      final List<Number> tileRow = new ArrayList<>();
+      row.forEach(number -> tileRow.add(new Number(number)));
+      tileNumbers.add(tileRow);
+    });
+
+    return create(tileNumbers);
+  }
+
   public int calculateUnmarkedSum() {
     int unmarkedSum = 0;
     for (List<Number> row : numbers) {
