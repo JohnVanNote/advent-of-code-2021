@@ -53,5 +53,26 @@ public class BingoTileUnitTest {
     Assert.assertTrue(tileUnderTest.hasWon());
   }
 
+  @Test
+  public void calculateUnmarkedSum_notAllMarked_false() {
+    tileUnderTest.mark(1);
+    tileUnderTest.mark(4);
+    Assert.assertEquals(tileUnderTest.calculateUnmarkedSum(), 5);
+  }
+
+  @Test
+  public void calculateUnmarkedSum_rowMarked_true() {
+    tileUnderTest.mark(1);
+    tileUnderTest.mark(2);
+    Assert.assertEquals(tileUnderTest.calculateUnmarkedSum(), 7);
+  }
+
+  @Test
+  public void calculateUnmarkedSum_columnMarked_true() {
+    tileUnderTest.mark(1);
+    tileUnderTest.mark(3);
+    Assert.assertEquals(tileUnderTest.calculateUnmarkedSum(), 6);
+  }
+
 
 }

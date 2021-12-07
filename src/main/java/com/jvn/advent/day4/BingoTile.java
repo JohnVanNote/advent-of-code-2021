@@ -25,13 +25,23 @@ public class BingoTile {
     final List<List<Number>> tileNumbers = new ArrayList<>();
     Arrays.stream(unmarkedNumbers).forEach(row -> {
       final List<Number> tileRow = new ArrayList<>();
-      Arrays.stream(row).forEach(number -> {
-        tileRow.add(new Number(number));
-      });
+      Arrays.stream(row).forEach(number -> tileRow.add(new Number(number)));
       tileNumbers.add(tileRow);
     });
 
     return create(tileNumbers);
+  }
+
+  public int calculateUnmarkedSum() {
+    int unmarkedSum = 0;
+    for (List<Number> row : numbers) {
+      for (Number singleNumber : row) {
+        if (!singleNumber.isMarked()) {
+          unmarkedSum += singleNumber.getValue();
+        }
+      }
+    }
+    return unmarkedSum;
   }
 
   public void mark(int unmarkedNumber) {
