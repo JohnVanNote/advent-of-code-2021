@@ -43,4 +43,9 @@ public class Day4UnitTest {
     Assert.assertEquals(day4.playBingo(TILES, CALL_NUMBERS), 4512);
   }
 
+  @Test
+  public void playBingoBadly_example_exampleScore() {
+    Assert.assertEquals(day4.playBingoBadly(TILES, CALL_NUMBERS), 1924);
+  }
+
 }

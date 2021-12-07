@@ -5,7 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
@@ -18,6 +20,26 @@ public class Day4 {
         bingoTile.mark(callNumber);
         if (bingoTile.hasWon()) {
           return callNumber * bingoTile.calculateUnmarkedSum();
+        }
+      }
+    }
+    return -1;
+  }
+
+  public int playBingoBadly(List<BingoTile> bingoTiles, List<Integer> callNumbers) {
+    final Set<Integer> winners = new HashSet<>();
+
+    for (Integer callNumber : callNumbers) {
+      for (int i = 0; i < bingoTiles.size(); i++) {
+        final BingoTile bingoTile = bingoTiles.get(i);
+        if (!winners.contains(i)) {
+          bingoTile.mark(callNumber);
+          if (bingoTile.hasWon()) {
+            winners.add(i);
+            if (winners.size() == bingoTiles.size()) {
+              return bingoTile.calculateUnmarkedSum() * callNumber;
+            }
+          }
         }
       }
     }
@@ -50,6 +72,7 @@ public class Day4 {
       }
 
       System.out.println(String.format("The bingo score is %s", day4.playBingo(tiles, callNumbers)));
+      System.out.println(String.format("The bingo score for the last winning card is %s", day4.playBingoBadly(tiles, callNumbers)));
     }
   }
 
