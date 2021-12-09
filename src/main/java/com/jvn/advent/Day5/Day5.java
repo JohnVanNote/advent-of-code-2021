@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class Day5 {
 
-  public int howManyOverlap(List<Line> lines, int threshold) {
+  public int howManyOverlap(List<Line> lines, int threshold, boolean withDiagonals) {
     final List<List<Integer>> grid = new ArrayList<>();
     for (Line line : lines) {
       final int x1 = line.getX1();
@@ -27,6 +27,14 @@ public class Day5 {
       if (line.isVertical()) {
         for (int i = Math.min(y1, y2); i <= Math.max(y1, y2); i++) {
           incrementGrid(grid, x1, i);
+        }
+      }
+
+      if (line.is45Degrees() && withDiagonals) {
+        final int xSign = x1 > x2 ? -1 : 1;
+        final int ySign = y1 > y2 ? -1 : 1;
+        for (int i = 0; i <= Math.max(y1, y2) - Math.min(y1, y2); i++) {
+          incrementGrid(grid, x1 + (i * xSign), y1 + (i * ySign));
         }
       }
 
@@ -64,10 +72,14 @@ public class Day5 {
     return score;
   }
 
-  private void printGrid(List<List<Integer>> grid) {
+  private void printGrid(List<List<Integer>> grid, Line line) {
+    System.out.println("~~~~~~~~~");
+    System.out.println("Line " + line);
     for (List<Integer> row : grid) {
       System.out.println(row);
     }
+    System.out.println("~~~~~~~~~");
+
   }
 
   public static void main(String[] args) throws IOException {
@@ -78,7 +90,8 @@ public class Day5 {
       final List<Line> lineInput = lines
           .map(LineMapper::fromString)
           .collect(Collectors.toList());
-      System.out.println(String.format("%s overlap", day5.howManyOverlap(lineInput, 2)));
+      System.out.println(String.format("%s overlap", day5.howManyOverlap(lineInput, 2, false)));
+      System.out.println(String.format("%s overlap with diagonals", day5.howManyOverlap(lineInput, 2, true)));
     }
   }
 

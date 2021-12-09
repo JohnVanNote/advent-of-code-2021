@@ -22,6 +22,10 @@ public class Line {
     return x1 == x2;
   }
 
+  public boolean is45Degrees() {
+    return !isVertical() && !isHorizontal() && (Math.abs(x1 - x2) / Math.abs(y1 - y2)) == 1;
+  }
+
   public static Line create(int x1, int y1, int x2, int y2) {
     return new Line(x1, y1, x2, y2);
   }

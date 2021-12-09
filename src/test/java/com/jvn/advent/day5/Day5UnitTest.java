@@ -25,8 +25,14 @@ public class Day5UnitTest {
   private final Day5 day5 = new Day5();
 
   @Test
-  public void howManyOverlap_exampleLines_equalsExampleValue() {
-    Assert.assertEquals(day5.howManyOverlap(LINES, 2), 5);
+  public void howManyOverlap_exampleLinesWithoutDiagonals_equalsExampleValue() {
+    Assert.assertEquals(day5.howManyOverlap(LINES, 2, false), 5);
+  }
+
+
+  @Test
+  public void howManyOverlap_exampleLinesWithDiagonals_equalsExampleValue() {
+    Assert.assertEquals(day5.howManyOverlap(LINES, 2, true), 12);
   }
 
 }
