@@ -1,8 +1,6 @@
 package com.jvn.advent.day5;
 
 import com.google.common.collect.ImmutableList;
-import com.jvn.advent.Day5.Day5;
-import com.jvn.advent.Day5.Line;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;

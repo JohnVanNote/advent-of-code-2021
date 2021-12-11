@@ -1,4 +1,4 @@
-package com.jvn.advent.Day5;
+package com.jvn.advent.day5;
 
 import org.apache.commons.lang3.StringUtils;
 
