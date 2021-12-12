@@ -34,6 +34,29 @@ public class Day7 {
         .orElseThrow(AdventException::new);
   }
 
+  public int howMuchFuelForReal(List<Integer> crabPositions) {
+    final int maxPosition = crabPositions.stream()
+        .max(Integer::compareTo)
+        .orElseThrow(AdventException::new);
+
+    final List<Integer> positionMap = new ArrayList<>();
+    IntStream.range(0, maxPosition + 1).forEach(i -> positionMap.add(0));
+
+    for (Integer crabPosition : crabPositions) {
+      IntStream.range(0, maxPosition + 1).forEach(i -> {
+        int currentPositionValue = positionMap.get(i);
+        int distance = Math.abs(i - crabPosition);
+        int fuel = IntStream.rangeClosed(1, distance).sum();
+        positionMap.set(i, currentPositionValue + fuel);
+      });
+    }
+
+    return positionMap.stream()
+        .min(Integer::compareTo)
+        .orElseThrow(AdventException::new);
+  }
+
+
   public static void main(String[] args) throws IOException {
     final Day7 day7 = new Day7();
     final String inputFilePath = "src/main/resources/day7/input.txt";
@@ -45,6 +68,7 @@ public class Day7 {
           .map(Integer::parseInt)
           .collect(Collectors.toList());
       System.out.println(String.format("Optimum fuel is %d", day7.howMuchFuel(crabPositions)));
+      System.out.println(String.format("Optimum fuel is %d", day7.howMuchFuelForReal(crabPositions)));
     }
   }
 

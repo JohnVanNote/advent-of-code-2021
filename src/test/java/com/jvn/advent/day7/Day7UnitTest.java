@@ -16,4 +16,9 @@ public class Day7UnitTest {
     Assert.assertEquals(day7.howMuchFuel(CRAB_POSITIONS), 37);
   }
 
+  @Test
+  public void howMuchFuelForReal_example_example() {
+    Assert.assertEquals(day7.howMuchFuelForReal(CRAB_POSITIONS), 168);
+  }
+
 }
