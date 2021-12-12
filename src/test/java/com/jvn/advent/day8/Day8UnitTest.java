@@ -27,4 +27,9 @@ public class Day8UnitTest {
     Assert.assertEquals(day8.howManyUniqueSymbols(INPUT_SIGNALS), 26);
   }
 
+  @Test
+  public void decode_example_example() {
+    Assert.assertEquals(day8.decode(INPUT_SIGNALS), 61229);
+  }
+
 }
