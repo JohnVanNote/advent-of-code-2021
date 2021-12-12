@@ -22,4 +22,9 @@ public class Day9UnitTest {
     Assert.assertEquals(day9.lowPointSum(HEIGHT_MAP), 15);
   }
 
+  @Test
+  public void basinSizeProduct_example_example() {
+    Assert.assertEquals(day9.basinSizeProduct(HEIGHT_MAP), 1134);
+  }
+
 }
