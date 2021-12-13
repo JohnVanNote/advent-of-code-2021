@@ -27,4 +27,9 @@ public class Day10UnitTest {
     Assert.assertEquals(day10.part1Answer(CHUNKS), 26397);
   }
 
+  @Test
+  public void part2Answer_example_example() {
+    Assert.assertEquals(day10.part2Answer(CHUNKS), 288957);
+  }
+
 }
